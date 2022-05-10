@@ -1,4 +1,4 @@
-FROM centos:centos7.9.2009
+FROM ubuntu:14.04
 
 # Install dependencies
 RUN apt-get update && \
