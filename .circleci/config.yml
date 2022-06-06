@@ -4,12 +4,13 @@ orbs:
   aws-ecr: circleci/aws-ecr@8.1.2
   aws-ecs: circleci/aws-ecs@2.2.1
 
-checkip:
-#  circleci_ip_ranges: true
-  steps:
-    - run:
-      name: check the source IP address
-      command: curl -v https://checkip.amazonaws.com
+jobs:
+
+  checkip:
+    steps:
+      - run:
+        name: check the source IP address
+        command: curl -v https://checkip.amazonaws.com
 
 workflows:
   build-and-deploy:
