@@ -7,15 +7,16 @@ orbs:
 jobs:
 
   checkip:
+    docker:
+      - image: cimg/base:2021.04
     steps:
-      - run:
-        name: check the source IP address
-        command: curl -v https://checkip.amazonaws.com
+      - checkout
+      - run: curl -v https://checkip.amazonaws.com
 
 workflows:
   build-and-deploy:
     jobs:
-      - checkip:
+      - checkip
       - aws-ecr/build-and-push-image:
           requires:
             - checkip
